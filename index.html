@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codex Pomodoro Timer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <h1>番茄时钟</h1>
+    <section class="session-switcher" aria-label="Session selection">
+      <button type="button" class="session-button" data-session="focus">专注 25 分钟</button>
+      <button type="button" class="session-button" data-session="break">休息 5 分钟</button>
+    </section>
+    <section class="timer" aria-live="polite">
+      <p class="session-label" id="session-label">当前：专注</p>
+      <p class="time" id="time-display">25:00</p>
+    </section>
+    <section class="controls">
+      <button type="button" id="toggle-btn">开始</button>
+      <button type="button" id="reset-btn">重置</button>
+    </section>
+    <p class="hint">提示：结束时会自动切换到下一阶段。</p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

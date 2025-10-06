@@ -1,0 +1,147 @@
+:root {
+  color-scheme: light dark;
+  --focus-color: #ff6b6b;
+  --break-color: #4ecdc4;
+  --bg-color: #1f1f1f;
+  --text-color: #f6f6f6;
+  --card-bg: rgba(255, 255, 255, 0.08);
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, rgba(255, 107, 107, 0.2), transparent 55%),
+              radial-gradient(circle at bottom, rgba(78, 205, 196, 0.2), transparent 55%),
+              var(--bg-color);
+  color: var(--text-color);
+}
+
+.app {
+  width: min(90%, 420px);
+  background: var(--card-bg);
+  backdrop-filter: blur(14px);
+  padding: 2.5rem 2rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.session-switcher {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.session-button {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.1);
+  color: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.session-button.active[data-session="focus"] {
+  background: rgba(255, 107, 107, 0.2);
+  border-color: var(--focus-color);
+}
+
+.session-button.active[data-session="break"] {
+  background: rgba(78, 205, 196, 0.2);
+  border-color: var(--break-color);
+}
+
+.session-button:hover {
+  transform: translateY(-2px);
+}
+
+.timer {
+  margin-bottom: 1.5rem;
+}
+
+.session-label {
+  margin: 0 0 0.5rem;
+  opacity: 0.8;
+}
+
+.time {
+  font-size: clamp(3rem, 12vw, 4.75rem);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.12em;
+  margin: 0;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.controls button {
+  flex: 1;
+  padding: 0.9rem 1rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#toggle-btn {
+  background: linear-gradient(135deg, var(--focus-color), #ffa36c);
+  color: #fff;
+}
+
+body.break #toggle-btn {
+  background: linear-gradient(135deg, var(--break-color), #74f1d2);
+}
+
+#reset-btn {
+  background: rgba(255, 255, 255, 0.18);
+  color: inherit;
+}
+
+.controls button:hover {
+  transform: translateY(-2px);
+}
+
+.controls button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.82rem;
+  opacity: 0.75;
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 2rem 1.5rem;
+  }
+
+  .session-switcher {
+    flex-direction: column;
+  }
+}
